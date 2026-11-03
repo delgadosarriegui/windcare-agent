@@ -1,0 +1,28 @@
+{
+  // Nombre del entorno que se mostrará en Codespaces
+  "name": "WindCare Agent",
+
+  // Imagen base: Linux con Python 3.12 ya instalado
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+  // Herramientas extra: Azure CLI (para "az login")
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+
+  // Al crear el Codespace, instala automáticamente las librerías de requirements.txt
+  "postCreateCommand": "pip install -r requirements.txt",
+
+  // Puerto de la web de Streamlit, para poder abrirla en el navegador
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": { "label": "WindCare web", "onAutoForward": "openBrowser" }
+  },
+
+  // Extensión de Python para VS Code dentro del Codespace
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
